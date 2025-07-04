@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout gh-pages branch
+      - name: Checkout gh-pages branch (full history)
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -33,18 +33,22 @@ jobs:
           git config user.email "documenter@juliadocs.github.io"
           lookback="${{ github.event.inputs.lookback }}"
           echo "Deleting previews older than ${lookback} days..."
+          
           # Remove files older than the specified lookback
           find previews/ -type f -mtime +${lookback} -print0 \
             | xargs -0 git rm -f || true
+          
           # Remove empty directories
           find previews/ -type d -empty -print0 \
             | xargs -0 git rm -rf || true
+          
           # Commit changes if any
           if git diff --quiet; then
             echo "No previews to delete."
           else
             git commit -m "Cleanup previews older than ${lookback} days"
           fi
+          
           # Create a fresh orphan branch to drop history
           git branch gh-pages-new $(echo "delete history" | git commit-tree HEAD^{tree})
           git push --force origin gh-pages-new:gh-pages
