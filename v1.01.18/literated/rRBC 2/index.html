@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>- · BiGSTARS.jl</title><meta name="title" content="- · BiGSTARS.jl"/><meta property="og:title" content="- · BiGSTARS.jl"/><meta property="twitter:title" content="- · BiGSTARS.jl"/><meta name="description" content="Documentation for BiGSTARS.jl."/><meta property="og:description" content="Documentation for BiGSTARS.jl."/><meta property="twitter:description" content="Documentation for BiGSTARS.jl."/><meta property="og:url" content="https://subhk.github.io/BiGSTARSDocumentation/stable/literated/rRBC 2/"/><meta property="twitter:url" content="https://subhk.github.io/BiGSTARSDocumentation/stable/literated/rRBC 2/"/><link rel="canonical" href="https://subhk.github.io/BiGSTARSDocumentation/stable/literated/rRBC 2/"/><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../../">BiGSTARS.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><a class="tocitem" href="../../installation_instructions/">Installation instructions</a></li><li><a class="tocitem" href="../../matrices/">Differentiation matrix</a></li><li><a class="tocitem" href="../../method/">Methodology</a></li><li><span class="tocitem">Examples</span><ul><li><a class="tocitem" href="../Stone1971/">Stone1971</a></li><li><a class="tocitem" href="../Eady/">Eady</a></li><li><a class="tocitem" href="../rRBC/">rotating RBC</a></li></ul></li><li><a class="tocitem" href="../../contributing/">Contributor&#39;s Guide</a></li><li><a class="tocitem" href="../../references/">References</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>-</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>-</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/subhk/BiGSTARS.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/subhk/BiGSTARS.jl/blob/main/examples/rRBC.jl" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h3 id="Finding-critical-Rayleigh-number-for-rotating-Rayleigh-Benard-Convection"><a class="docs-heading-anchor" href="#Finding-critical-Rayleigh-number-for-rotating-Rayleigh-Benard-Convection">Finding critical Rayleigh number for rotating Rayleigh-Benard Convection</a><a id="Finding-critical-Rayleigh-number-for-rotating-Rayleigh-Benard-Convection-1"></a><a class="docs-heading-anchor-permalink" href="#Finding-critical-Rayleigh-number-for-rotating-Rayleigh-Benard-Convection" title="Permalink"></a></h3><h2 id="Introduction"><a class="docs-heading-anchor" href="#Introduction">Introduction</a><a id="Introduction-1"></a><a class="docs-heading-anchor-permalink" href="#Introduction" title="Permalink"></a></h2><p>This code finds critical Rayleigh number for the onset of convection for rotating Rayleigh Benrad Convection (rRBC) where the domain is periodic in y-direction. The code is benchmarked against Chandrashekar&#39;s theoretical results. Hydrodynamic and hydromagnetic stability by S. Chandrasekhar, 1961 (page no-95).</p><p>Parameter:</p><p>Ekman number <span>$E = 10⁻⁴$</span></p><p>Eigenvalue: critical modified Rayleigh number <span>$Ra_c = 189.7$</span></p><p>In this module, we do a linear stability analysis of a 2D rotating Rayleigh-Bernard case where the domain is periodic in the <span>$y$</span>-direction, in the <span>$x$</span>-direction is of infinite extent and vertically bounded.</p><p>The background temperature profile <span>$\overline{\theta}$</span> is given by</p><p class="math-container">\[\overline{\theta} = 1 - z.\]</p><h2 id="Governing-equations"><a class="docs-heading-anchor" href="#Governing-equations">Governing equations</a><a id="Governing-equations-1"></a><a class="docs-heading-anchor-permalink" href="#Governing-equations" title="Permalink"></a></h2><p>The non-dimensional form of the equations governing the perturbation is given by</p><p class="math-container">\[\begin{align}
+    \frac{E}{Pr} \frac{\partial \mathbf{u}}{\partial t}
+    + \hat{z} \times \mathbf{u} =
+    -\nabla p + Ra \theta \hat{z} + E \nabla^2 \mathbf{u},
+\\
+    \frac{\partial \theta}{\partial t}
+    = \mathbf{u} \cdot \hat{z} + \nabla^2 \theta,
+\\
+    \nabla \cdot \mathbf{u} = 0,
+\end{align}\]</p><p>where <span>$E=\nu/(fH^2)$</span> is the Ekman number and <span>$Ra = g\alpha \Delta T/(f \kappa)$</span>, <span>$\Delta T$</span> is the temperature difference between the bottom and the top walls) is the modified Rayleigh number. By applying the operators <span>$(\nabla \times \nabla \times)$</span> and <span>$(\nabla \times)$</span> and taking the <span>$z$</span>-component of the equations and assuming wave-like perturbations, we obtained the equations for vertical velocity <span>$w$</span>, vertical vorticity <span>$\zeta$</span> and temperature <span>$\theta$</span>,</p><p class="math-container">\[\begin{align}
+    E \mathcal{D}^4 w - \partial_z \zeta &amp;= -Ra \mathcal{D}_h^2 \theta,
+\\
+    E \mathcal{D}^2 \zeta + \partial_z w &amp;= 0,
+\\
+    \mathcal{D}^2 \theta + w &amp;= 0.
+\end{align}\]</p><h2 id="Normal-mode-solutions"><a class="docs-heading-anchor" href="#Normal-mode-solutions">Normal mode solutions</a><a id="Normal-mode-solutions-1"></a><a class="docs-heading-anchor-permalink" href="#Normal-mode-solutions" title="Permalink"></a></h2><p>Next we consider normal-mode perturbation solutions in the form of (we seek stationary solutions at the marginal state, i.e., <span>$\sigma = 0$</span>),</p><p class="math-container">\[\begin{align}
+ [w, \zeta, \theta](x,y,z,t) = \mathfrak{R}\big([\tilde{w}, \tilde{\zeta}, \tilde{\theta}](y, z)  e^{i kx + \sigma t}\big),
+\end{align}\]</p><p>where the symbol <span>$\mathfrak{R}$</span> denotes the real part and a variable with `tilde&#39; denotes an eigenfunction. Finally following systems of differential equations are obtained,</p><p class="math-container">\[\begin{align}
+    E \mathcal{D}^4  \tilde{w} - \partial_z \tilde{\zeta} &amp;= - Ra \mathcal{D}_h^2 \tilde{\theta},
+\\
+    E \mathcal{D}^2 \tilde{\zeta} + \partial_z \tilde{w} &amp;= 0,
+\\
+    \mathcal{D}^2 \tilde{\theta} + \tilde{w} &amp;= 0,
+\end{align}\]</p><p>where</p><p class="math-container">\[\begin{align}
+\mathcal{D}^4  = (\mathcal{D}^2 )^2 = \big(\partial_y^2 + \partial_z^2 - k^2\big)^2,
+\,\,\,\, \text{and} \,\, \mathcal{D}_h^2 = (\partial_y^2 - k^2).
+\end{align}\]</p><p>The eigenfunctions <span>$\tilde{u}$</span>, <span>$\tilde{v}$</span> are related to <span>$\tilde{w}$</span>, <span>$\tilde{\zeta}$</span> by the relations</p><p class="math-container">\[\begin{align}
+    -\mathcal{D}_h^2 \tilde{u} &amp;= i k \partial_{z} \tilde{w} + \partial_y \tilde{\zeta},
+\\
+    -\mathcal{D}_h^2 \tilde{v} &amp;= \partial_{yz} \tilde{w} -  i k \tilde{\zeta}.
+\end{align}\]</p><h2 id="Boundary-conditions"><a class="docs-heading-anchor" href="#Boundary-conditions">Boundary conditions</a><a id="Boundary-conditions-1"></a><a class="docs-heading-anchor-permalink" href="#Boundary-conditions" title="Permalink"></a></h2><p>We choose periodic boundary conditions in the <span>$y$</span>-direction and free-slip, rigid lid, with zero buoyancy flux in the <span>$z$</span> direction, i.e.,</p><p class="math-container">\[\begin{align}
+    \tilde{w} = \partial_{zz} \tilde{w} =
+    \partial_z \tilde{\zeta} = \tilde{\theta} = 0,
+    \,\,\,\,\,\,\, \text{at} \,\,\, {z}=0, 1.
+\end{align}\]</p><h2 id="Generalized-eigenvalue-problem-(GEVP)"><a class="docs-heading-anchor" href="#Generalized-eigenvalue-problem-(GEVP)">Generalized eigenvalue problem (GEVP)</a><a id="Generalized-eigenvalue-problem-(GEVP)-1"></a><a class="docs-heading-anchor-permalink" href="#Generalized-eigenvalue-problem-(GEVP)" title="Permalink"></a></h2><p>The above sets of equations with the boundary conditions can be expressed as a standard generalized eigenvalue problem,</p><p class="math-container">\[\begin{align}
+ AX= λBX,
+\end{align}\]</p><p>where <span>$\lambda=Ra$</span> is the eigenvalue, and <span>$X=[w \zeta \theta]^T$</span> is the eigenvector. The matrices <span>$A$</span> and <span>$B$</span> are given by</p><p class="math-container">\[\begin{align}
+    A &amp;= \begin{bmatrix}
+        E \mathcal{D}^4 &amp; -\mathcal{D}_z &amp; 0 \\
+        \mathcal{D}_z &amp; E \mathcal{D}^2 &amp; 0 \\
+        1 &amp; 0 &amp; \mathcal{D}^2
+    \end{bmatrix},
+\,\,\,\,\,\,\,
+    B &amp;= \begin{bmatrix}
+        0 &amp; 0 &amp; -\mathcal{D}_h^2 \\
+        0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0
+    \end{bmatrix}.
+\end{align}\]</p><h2 id="Numerical-Implementation"><a class="docs-heading-anchor" href="#Numerical-Implementation">Numerical Implementation</a><a id="Numerical-Implementation-1"></a><a class="docs-heading-anchor-permalink" href="#Numerical-Implementation" title="Permalink"></a></h2><p>To implement the above GEVP in a numerical code, we need to actually write following sets of equations:</p><p class="math-container">\[\begin{align}
+    A &amp;= \begin{bmatrix}
+        E {D}^4 &amp; -{D}_z^D &amp; 0 \\
+        \mathcal{D}^{zD} &amp; E {D}^{2N} &amp; 0 \\
+        I &amp; 0 &amp; \mathcal{D}^{2D}
+    \end{bmatrix},
+\,\,\,\,\,\,\,
+    B &amp;= \begin{bmatrix}
+        0 &amp; 0 &amp; -\mathcal{D}^{2D} \\
+        0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0
+    \end{bmatrix}.
+\end{align}\]</p><h2 id="Load-required-packages"><a class="docs-heading-anchor" href="#Load-required-packages">Load required packages</a><a id="Load-required-packages-1"></a><a class="docs-heading-anchor-permalink" href="#Load-required-packages" title="Permalink"></a></h2><pre><code class="language-julia hljs">using LazyGrids
+using LinearAlgebra
+using Printf
+using StaticArrays
+using SparseArrays
+using SparseMatrixDicts
+using FillArrays
+using SpecialFunctions
+using Parameters
+using Test
+using BenchmarkTools
+using JLD2
+using Parameters: @with_kw
+using BiGSTARS
+using BiGSTARS: AbstractParams
+using BiGSTARS: Problem, OperatorI, TwoDGrid</code></pre><h2 id="Parameters"><a class="docs-heading-anchor" href="#Parameters">Parameters</a><a id="Parameters-1"></a><a class="docs-heading-anchor-permalink" href="#Parameters" title="Permalink"></a></h2><pre><code class="language-julia hljs">@with_kw mutable struct Params{T} &lt;: AbstractParams
+    L::T                = 2π            # horizontal domain size
+    H::T                = 1.0           # vertical   domain size
+    E::T                = 1.0e-4        # inverse of Reynolds number
+    k::T                = 0.0           # x-wavenumber
+    Ny::Int64           = 120           # no. of y-grid points
+    Nz::Int64           = 30            # no. of Chebyshev points
+    w_bc::String        = &quot;rigid_lid&quot;   # boundary condition for vertical velocity
+    ζ_bc::String        = &quot;free_slip&quot;   # boundary condition for vertical vorticity
+    b_bc::String        = &quot;fixed&quot;        # boundary condition for temperature
+    eig_solver::String  = &quot;arnoldi&quot;      # eigenvalue solver
+end</code></pre><h2 id="Basic-state"><a class="docs-heading-anchor" href="#Basic-state">Basic state</a><a id="Basic-state-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-state" title="Permalink"></a></h2><pre><code class="language-julia hljs">function basic_state(grid, params)
+
+    Y, Z = ndgrid(grid.y, grid.z)
+    Y    = transpose(Y)
+    Z    = transpose(Z)
+
+    # Define the basic state
+    B₀   = @. Z - params.H  # temperature
+    U₀   = @. 0.0 * Z       # velocity
+
+    # Calculate all the necessary derivatives
+    deriv = compute_derivatives(U₀, B₀, grid.y, grid.Dᶻ, grid.D²ᶻ, :All)
+
+    bs = initialize_basic_state_from_fields(B₀, U₀)
+
+    initialize_basic_state!(
+            bs,
+            deriv.∂ʸB₀,  deriv.∂ᶻB₀,
+            deriv.∂ʸU₀,  deriv.∂ᶻU₀,
+            deriv.∂ʸʸU₀, deriv.∂ᶻᶻU₀, deriv.∂ʸᶻU₀,
+            deriv.∂ʸʸB₀, deriv.∂ᶻᶻB₀, deriv.∂ʸᶻB₀
+        )
+
+    return bs
+end</code></pre><h2 id="Constructing-Generalized-EVP"><a class="docs-heading-anchor" href="#Constructing-Generalized-EVP">Constructing Generalized EVP</a><a id="Constructing-Generalized-EVP-1"></a><a class="docs-heading-anchor-permalink" href="#Constructing-Generalized-EVP" title="Permalink"></a></h2><pre><code class="language-julia hljs">function generalized_EigValProb(prob, grid, params)
+
+    bs = basic_state(grid, params)
+
+    N  = params.Ny * params.Nz
+    I⁰ = sparse(Matrix(1.0I, N, N)) # Identity matrix
+    s₁ = size(I⁰, 1);
+    s₂ = size(I⁰, 2);
+
+    # the horizontal Laplacian operator: ∇ₕ² = ∂ʸʸ - k²
+    ∇ₕ² = SparseMatrixCSC(Zeros(N, N))
+    ∇ₕ² = (1.0 * prob.D²ʸ - 1.0 * params.k^2 * I⁰)
+
+    # inverse of the horizontal Laplacian operator
+    H = inverse_Lap_hor(∇ₕ²)
+
+    # Construct the 4th order derivative
+    D⁴  = (1.0 * prob.D⁴ʸ
+        + 1.0 * prob.D⁴ᶻᴰ
+        + 1.0 * params.k^4 * I⁰
+        - 2.0 * params.k^2 * prob.D²ʸ
+        - 2.0 * params.k^2 * prob.D²ᶻᴰ
+        + 2.0 * prob.D²ʸ²ᶻᴰ)
+
+    # Construct the 2nd order derivative
+    D²ᴰ = (1.0 * prob.D²ᶻᴰ  + 1.0 * ∇ₕ²)  # with Dirchilet BC
+    D²ᴺ = (1.0 * prob.D²ᶻᴺ  + 1.0 * ∇ₕ²)  # with Neumann BC
+
+    # Construct the matrix `A`
+    # ──────────────────────────────────────────────────────────────────────────────
+    # 1) Now define your 3×3 block-rows in a NamedTuple of 3-tuples
+    # ──────────────────────────────────────────────────────────────────────────────
+    # Construct the matrix `A`
+    Ablocks = (
+        w = (  # w-equation: ED⁴ -Dᶻ zero
+                sparse(params.E * D⁴),
+                sparse(-prob.Dᶻᴺ),
+                spzeros(Float64, s₁, s₂)
+        ),
+        ζ = (  # ζ-equation: Dᶻ ED² zero
+                sparse(prob.Dᶻᴰ),
+                sparse(params.E * D²ᴺ),
+                spzeros(Float64, s₁, s₂)
+        ),
+        θ = (  # b-equation: I zero D²
+                sparse(I⁰),
+                spzeros(Float64, s₁, s₂),
+                sparse(D²ᴰ)
+        )
+    )
+
+    # Construct the matrix `B`
+    Bblocks = (
+        w = (  # w-equation: zero, zero -∇ₕ²
+                spzeros(Float64, s₁, s₂),
+                spzeros(Float64, s₁, s₂),
+                sparse(-∇ₕ²)
+        ),
+        ζ = (  # ζ-equation: zero, zero, zero
+                spzeros(Float64, s₁, s₂),
+                spzeros(Float64, s₁, s₂),
+                spzeros(Float64, s₁, s₂)
+        ),
+        θ = (  # b-equation: zero, zero, zero
+                spzeros(Float64, s₁, s₂),
+                spzeros(Float64, s₁, s₂),
+                spzeros(Float64, s₁, s₂)
+        )
+    )
+
+    # ──────────────────────────────────────────────────────────────────────────────
+    # 2) Assemble in beautiful line
+    # ──────────────────────────────────────────────────────────────────────────────
+    gevp = GEVPMatrices(Ablocks, Bblocks)
+
+
+    # ──────────────────────────────────────────────────────────────────────────────
+    # 3) And now you have exactly:
+    #    gevp.A, gevp.B                    → full sparse matrices
+    #    gevp.As.w, gevp.As.ζ, gevp.As.b   → each block-row view
+    #    gevp.Bs.w, gevp.Bs.ζ, gevp.Bs.b
+    # ──────────────────────────────────────────────────────────────────────────────
+
+    return gevp.A, gevp.B
+end</code></pre><h2 id="Eigenvalue-solver"><a class="docs-heading-anchor" href="#Eigenvalue-solver">Eigenvalue solver</a><a id="Eigenvalue-solver-1"></a><a class="docs-heading-anchor-permalink" href="#Eigenvalue-solver" title="Permalink"></a></h2><pre><code class="language-julia hljs">function EigSolver(prob, grid, params, σ₀)
+
+    A, B = generalized_EigValProb(prob, grid, params)
+
+    if params.eig_solver == &quot;arpack&quot;
+
+        λ, Χ = solve_shift_invert_arpack(A, B;
+                                        σ₀=σ₀,
+                                        which=:LM,
+                                        sortby=:R,
+                                        nev = 10,
+                                        maxiter=100)
+
+    elseif params.eig_solver == &quot;krylov&quot;
+
+        λ, Χ = solve_shift_invert_krylov(A, B;
+                                        σ₀=σ₀,
+                                        which=:LM,
+                                        sortby=:R,
+                                        maxiter=100)
+
+    elseif params.eig_solver == &quot;arnoldi&quot;
+
+        λ, Χ = solve_shift_invert_arnoldi(A, B;
+                                        σ₀=σ₀,
+                                        which=:LM,
+                                        sortby=:R,
+                                        nev = 10,
+                                        maxiter=100)
+    end
+    # ======================================================================
+    @assert length(λ) &gt; 0 &quot;No eigenvalue(s) found!&quot;
+
+    @printf &quot;||AΧ - λBΧ||₂: %f \n&quot; norm(A * Χ[:,1] - λ[1] * B * Χ[:,1])
+
+    # looking for min Ra
+    λ, Χ = remove_evals(λ, Χ, 10.0, 1.0e15, &quot;R&quot;)
+    λ, Χ = sort_evals_(λ, Χ,  :R, rev=false)
+
+    print_evals(complex.(λ))
+
+    return λ[1], Χ[:,1]
+end</code></pre><h2 id="Solving-the-problem"><a class="docs-heading-anchor" href="#Solving-the-problem">Solving the problem</a><a id="Solving-the-problem-1"></a><a class="docs-heading-anchor-permalink" href="#Solving-the-problem" title="Permalink"></a></h2><pre><code class="language-julia hljs">function solve_rRBC(k::Float64)
+
+    # Calling problem parameters
+    params = Params{Float64}()
+
+    # Construct grid and derivative operators
+    grid  = TwoDGrid(params)
+
+    # Construct the necesary operator
+    ops  = OperatorI(params)
+    prob = Problem(grid, ops)
+
+    # update the wavenumber
+    #params = Params(p; k = k)
+    params.k = k
+
+    # initial guess for the growth rate
+    σ₀   = 0.0
+
+    λ, Χ = EigSolver(prob, grid, params, σ₀)
+
+    # Theoretical results from Chandrashekar (1961)
+    λₜ = 189.7
+    @printf &quot;Analytical solution of critical Ra: %1.4e \n&quot; λₜ
+
+    return abs(real(λ) - λₜ)/λₜ &lt; 1e-4
+end</code></pre><h2 id="Result"><a class="docs-heading-anchor" href="#Result">Result</a><a id="Result-1"></a><a class="docs-heading-anchor-permalink" href="#Result" title="Permalink"></a></h2><pre><code class="language-julia hljs">solve_rRBC(0.0) # Critical Rayleigh number is at k=0.0</code></pre><pre><code class="nohighlight hljs">(attempt  1) trying σ = 0.000000
+Converged: first λ = 193.728586 + i 0.000000 (σ = 0.000000)
+(attempt  2) trying σ = 0.000000
+Converged: first λ = 193.728586 + i 0.000000 (σ = 0.000000)
+Successive eigenvalues converged: |Δλ| = 1.83e-07 &lt; 1.00e-05
+||AΧ - λBΧ||₂: 0.011119 
+Top 9 eigenvalues (sorted):
+Idx │ Real Part     Imag Part
+────┼──────────────────────────────
+  9 │  1.937286e+02          
+  8 │  1.933564e+02          
+  7 │  1.933563e+02          
+  6 │  1.907175e+02          
+  5 │  1.907172e+02          
+  4 │  1.906031e+02          
+  3 │  1.906031e+02          
+  2 │  1.897041e+02          
+  1 │  1.897041e+02          
+Analytical solution of critical Ra: 1.8970e+02 
+</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.13.0 on <span class="colophon-date" title="Friday 18 July 2025 23:21">Friday 18 July 2025</span>. Using Julia version 1.11.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
